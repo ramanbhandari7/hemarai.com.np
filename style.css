@@ -42,9 +42,13 @@ nav {
 }
 
 nav .logo a {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
+    display: inline-block; /* Good for image links */
+}
+
+#logo-img {
+    height: 50px; /* ADJUST THIS VALUE for desired logo height */
+    width: auto;  /* Keeps the aspect ratio */
+    vertical-align: middle; /* Helps align the image nicely */
 }
 
 nav ul {
