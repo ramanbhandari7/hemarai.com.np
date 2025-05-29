@@ -3,88 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hema Rai</title> <!-- Corrected closing tag -->
-    <meta name="description" content="Welcome to Hema Rai's personal website. Learn more about Hema Rai.">
+    <title>Hema Rai - Welcome Evryone!</title>
     <link rel="stylesheet" href="style.css">
-</head><body>
+    <!-- Optional: Add a Favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
 
     <header>
-        <nav>
-            <div class="logo">
-                <a href="#home">
-                    <img src="hema.jpg" alt="Hema Rai Logo" id="logo-img">
-                </a>
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li> <!-- Updated href -->
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <a href="#home" class="logo-link">
+                <img src="images/logo.jpg" alt="Hema Rai Logo" id="logo">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-item-home">Home</a></li>
+                    <li><a href="#about" class="nav-item-about">About</a></li>
+                    <li><a href="#gallery" class="nav-item-gallery">Gallery</a></li>
+                    <li><a href="#contact" class="nav-item-contact">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
+        <section id="home" class="hero-section">
             <div class="hero-content">
-                <h1>Welcome to Hema Rai's Corner</h1>
-                <p>Welcome to my personal portfolio website</p>
-                <a href="#about" class="cta-button">Learn More About Me</a>
+                <h1>Welcome to my pesonal website</h1>
+                <p>Discover creativity, passion, and inspiration.</p>
+                <a href="#about" class="cta-button">Learn More</a>
             </div>
         </section>
 
-        <section id="about">
+        <section id="about" class="content-section">
             <div class="container">
-                <h2>About Me</h2>
-                <img src="placeholder-profile.jpg" alt="Photo of Hema Rai" class="profile-pic">
-                <p>Hello! I'm Hema Rai. [Write a paragraph or two about Hema Rai. What does she do? What are her interests? What is this website for? This is a good place for a friendly introduction.]</p>
-                <p>[Another paragraph if needed. For example, "I believe in [Her Core Belief/Value] and strive to [Her Goal/Mission]."]</p>
-            </div>
-        </section>
-
-        <section id="gallery"> <!-- Updated id -->
-            <div class="container">
-                <h2>Gallery</h2> <!-- Updated heading -->
-                <p>[A brief introduction to your gallery, if you like.]</p>
-                <div class="gallery-grid">
-                    <!-- Add your gallery images here -->
-                    <div class="gallery-item">
-                        <img src="gallery-image-1.jpg" alt="Description of image 1">
+                <h2>About Hema</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hello! I'm Hema Rai. This is a space where I share my journey, my work, and my passions. [<strong>Write a bit about Hema here - what she does, her interests, etc.</strong>]</p>
+                        <p>Whether it's travelling, exploring, or simply connecting with like-minded individuals, I believe in the power of sharing and growing together.</p>
+                        <p>Feel free to explore and get in touch!</p>
                     </div>
-                    <div class="gallery-item">
-                        <img src="gallery-image-2.jpg" alt="Description of image 2">
+                    <div class="about-image">
+                        <img src="images/main.jpg" alt="Hema Rai">
                     </div>
-                    <div class="gallery-item">
-                        <img src="gallery-image-3.jpg" alt="Description of image 3">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="gallery-image-4.jpg" alt="Description of image 4">
-                    </div>
-                    <!-- Add more gallery items as needed -->
                 </div>
             </div>
         </section>
 
-        <section id="contact">
+        <section id="gallery" class="content-section">
             <div class="container">
-                <h2>Get in Touch</h2>
-                <p>If you'd like to connect, feel free to reach out!</p>
-                <p>Email: <a href="mailto:ramanhemarohana@gmail.com">ramanhemarohana@gmail.com</a></p> <!-- Corrected href -->
-                <p>Phone: +9779817394537</p> <!-- Corrected formatting -->
-                <p>You can also find me on:</p>
-                <ul>
-                    <li><a href="[Link to LinkedIn Profile]" target="_blank">LinkedIn</a></li>
-                    <li><a href="[Link to Facebook Profile]" target="_blank">Facebook</a></li>
-                    <li><a href="[Link to Instagram Profile]" target="_blank">Instagram</a></li>
-                    <!-- Add more social media links as needed -->
-                </ul>
+                <h2>Gallery</h2>
+                <p>A glimpse into my world and work. [<strong>Photo Mania</strong>]</p>
+                <div class="gallery-grid">
+                    <!-- Add more images as needed -->
+                    <div class="gallery-item"><img src="images/gallery_image1.jpg" alt="Gallery Image 1"></div>
+                    <div class="gallery-item"><img src="images/gallery_image2.jpg" alt="Gallery Image 2"></div>
+                    <div class="gallery-item"><img src="images/hero.jpg" alt="Gallery Image 3 - Reusing hero for example"></div>
+                    <div class="gallery-item"><img src="images/main.jpg" alt="Gallery Image 4 - Reusing main for example"></div>
+                    <!-- You'll want to replace these with actual, distinct gallery images -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <p>I'd love to hear from you! Reach out via email or social media.</p>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:info@hemarai.com.np">info@hemarai.com.np</a> (Replace with actual email)</p>
+                    <p><strong>Phone:</strong> +977-98XXXXXXXX (Optional: Replace with actual phone)</p>
+                    <!-- Add social media links if desired -->
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a> | 
+                        <a href="#" target="_blank">Instagram</a> |
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+                <!-- Basic Contact Form (needs backend to actually send email) -->
+                <form action="#" method="POST" class="contact-form">
+                    <h3>Send a Message</h3>
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Hema Rai - hemarai.com.np - All Rights Reserved.</p> <!-- Updated year -->
+        <div class="container">
+            <p>© <span id="currentYear"></span> Hema Rai. All Rights Reserved.</p>
+            <p>Website by [Your Name/Company if you want credit, or remove]</p>
+        </div>
     </footer>
+
+    <script>
+        // Mobile Nav Toggle
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+
+        burger.addEventListener('click', () => {
+            // Toggle Nav
+            nav.classList.toggle('nav-active');
+
+            // Animate Links
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+            // Burger Animation
+            burger.classList.toggle('toggle');
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a[href^="#"], .hero-section a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                nav.classList.remove('nav-active'); // Close mobile nav on click
+                burger.classList.remove('toggle'); // Reset burger
+                navLinks.forEach(link => link.style.animation = ''); // Reset link animations
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
