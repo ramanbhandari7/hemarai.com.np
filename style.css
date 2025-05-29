@@ -100,24 +100,27 @@ main {
 
 /* === Hero Section (#home) === */
 .hero-section {
-    background-image: url('main.jpg'); /* Path relative to style.css (both in docs/) */
+    /* Background Image Setup */
+    background-image: url('main.jpg'); /* <<< THIS IS THE KEY LINE */
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background-position: center center; /* Centers the image */
+    background-size: cover; /* Scales image to cover entire section, may crop */
     
-    width: 100%;
-    min-height: calc(100vh - var(--header-height));
-    position: relative;
+    /* Dimensions & Positioning */
+    width: 100%; 
+    min-height: calc(100vh - var(--header-height)); 
+    position: relative; 
     
+    /* Content Alignment (Flexbox) */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
     
-    color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
+    color: #ffffff; 
+    padding: 20px; 
+    box-sizing: border-box; 
 }
 
 .hero-overlay {
