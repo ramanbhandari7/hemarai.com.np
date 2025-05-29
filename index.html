@@ -11,16 +11,16 @@
     <!-- Font Awesome CDN for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="docs/favicon.png" type="image/png"> <!-- Path relative to index.html at root -->
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Assumes style.css is at root with index.html -->
 </head>
 <body>
     <!-- Header -->
     <header id="main-header">
     <div class="container header-container">
         <a href="#home" class="logo-link">
-            <img src="docs/hema.jpg" alt="Hema Rai Logo" class="logo-image">
+            <img src="docs/hema.jpg" alt="Hema Rai Logo" class="logo-image"> <!-- Path relative to index.html at root -->
             <span class="logo-text">Hema Rai</span>
         </a>
         <nav id="navbar">
@@ -42,10 +42,11 @@
     <main>
         <!-- Hero Section (Home) -->
         <section id="home" class="hero-section full-viewport-section">
-            <!-- Background image will be applied via CSS to .hero-section -->
+            <!-- REMOVED: <div class="hero-background-container">...</div> -->
+            <!-- Background image is applied via CSS to .hero-section -->
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1 id="typewriter-title">Hema Rai</h1>
+                <h1 id="typewriter-title">Hema Rai</h1> <!-- Content will be filled by JS -->
                 <p id="typewriter-subtitle" class="typewriter-line"></p>
                 <p id="typewriter-subtitle2" class="typewriter-line"></p>
                 <a href="#about" class="cta-button" id="typewriter-button">LEARN MORE ABOUT ME</a>
@@ -64,7 +65,7 @@
                         <p>Thanks for stopping by—let's connect!</p>
                     </div>
                     <div class="about-image-container">
-                        <img src="docs/hero.jpg" alt="Hema Rai" class="about-image">
+                        <img src="docs/hero.jpg" alt="Hema Rai" class="about-image"> <!-- Path relative to index.html at root -->
                     </div>
                 </div>
             </div>
@@ -77,7 +78,7 @@
                 <p class="section-subtitle">A collection of memories</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="docs/image1.jpg" alt="Gallery Image 1">
+                        <img src="docs/image1.jpg" alt="Gallery Image 1"> <!-- Path relative to index.html at root -->
                         <div class="gallery-item-caption">Memory One</div>
                     </div>
                     <div class="gallery-item">
@@ -128,7 +129,7 @@
                 </div>
                 <div class="contact-details">
                     <p>Or reach out directly:</p>
-                    <p><strong>Email:</strong> <a href="mailto:ramanhemarohana@gmail.com">Hema Rai</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@hemarai.com.np">info@hemarai.com.np</a></p>
                 </div>
             </div>
         </section>
@@ -143,13 +144,15 @@
                 <a href="https://youtube.com/@punkuli?si=TgQchUdP5Op8CB9a" target="_blank" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
             <div>
-                <p>© 2025<span id="currentYear"></span> Hema Rai. All Rights Reserved.</p>
-                <p>Designed by <a href="https://ramanbhandari.com.np/" target="_blank" rel="noopener noreferrer" class="designer-link">Raman Bhandari</a></p>
+                <p>© <span id="currentYear"></span> Hema Rai. All Rights Reserved.</p>
+                <p>Designed with <a href="https://ramanbhandari.com.np/" target="_blank" rel="noopener noreferrer" class="designer-link">Raman Bhandari</a></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Your JavaScript from the previous version - it should work fine.
+        // Make sure to place it here.
         document.addEventListener('DOMContentLoaded', () => {
             const burger = document.querySelector('.burger');
             const navLinksContainer = document.querySelector('nav .nav-links');
@@ -158,7 +161,7 @@
             let headerHeight = header.offsetHeight;
 
             // Typewriter effect for hero section
-            const titleText = "Hema Rai"; // This will be typed out
+            const titleText = "Hema Rai";
             const subtitleText = "A housewife and receptionist at Fiber World Communication";
             const subtitle2Text = "Creating warmth at home and professionalism at work";
             
@@ -166,22 +169,18 @@
             const subtitleElement = document.getElementById('typewriter-subtitle');
             const subtitle2Element = document.getElementById('typewriter-subtitle2');
             const buttonElement = document.getElementById('typewriter-button');
-
-            // Set initial text content for SEO and non-JS users, then clear for typing effect
-            // titleElement.textContent = titleText; 
-            // subtitleElement.textContent = subtitleText;
-            // subtitle2Element.textContent = subtitle2Text;
             
-            titleElement.textContent = ''; // Clear for typing effect
-            subtitleElement.textContent = '';
-            subtitle2Element.textContent = '';
-            buttonElement.style.opacity = 0;
-            buttonElement.style.transform = 'translateY(10px)';
-
+            if(titleElement) titleElement.textContent = ''; 
+            if(subtitleElement) subtitleElement.textContent = '';
+            if(subtitle2Element) subtitle2Element.textContent = '';
+            if (buttonElement) {
+                buttonElement.style.opacity = 0;
+                buttonElement.style.transform = 'translateY(10px)';
+            }
 
             let i = 0;
             function typeTitle() {
-                if (i < titleText.length) {
+                if (titleElement && i < titleText.length) {
                     titleElement.textContent += titleText.charAt(i);
                     i++;
                     setTimeout(typeTitle, 100);
@@ -192,7 +191,7 @@
 
             let j = 0;
             function typeSubtitle() {
-                if (j < subtitleText.length) {
+                if (subtitleElement && j < subtitleText.length) {
                     subtitleElement.textContent += subtitleText.charAt(j);
                     j++;
                     setTimeout(typeSubtitle, 50); 
@@ -203,18 +202,22 @@
             
             let k = 0;
             function typeSubtitle2() {
-                 if (k < subtitle2Text.length) {
+                 if (subtitle2Element && k < subtitle2Text.length) {
                     subtitle2Element.textContent += subtitle2Text.charAt(k);
                     k++;
                     setTimeout(typeSubtitle2, 50);
                 } else {
-                    buttonElement.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
-                    buttonElement.style.opacity = 1; 
-                    buttonElement.style.transform = 'translateY(0)';
+                    if (buttonElement) {
+                        buttonElement.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+                        buttonElement.style.opacity = 1; 
+                        buttonElement.style.transform = 'translateY(0)';
+                    }
                 }
             }
 
-            setTimeout(typeTitle, 700); // Start typing after a short delay
+            if(titleElement && subtitleElement && subtitle2Element){
+                 setTimeout(typeTitle, 700);
+            }
 
             window.addEventListener('resize', () => {
                 headerHeight = header.offsetHeight;
@@ -229,6 +232,7 @@
             function smoothScrollToTarget(targetId) {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    headerHeight = document.getElementById('main-header').offsetHeight; // Re-check header height
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = elementPosition - headerHeight;
 
