@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hema Rai</title>
+    <title>Hema Rai - Welcome!</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
-    <link rel="icon" href="docs/favicon.png" type="image/png"> <!-- Path relative to index.html at root -->
+    <link rel="icon" href="docs/favicon.png" type="image/png">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css"> <!-- Assumes style.css is at root with index.html -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
     <header id="main-header">
     <div class="container header-container">
         <a href="#home" class="logo-link">
-            <img src="docs/hema.jpg" alt="Hema Rai Logo" class="logo-image"> <!-- Path relative to index.html at root -->
+            <img src="docs/hema.jpg" alt="Hema Rai Logo" class="logo-image">
             <span class="logo-text">Hema Rai</span>
         </a>
         <nav id="navbar">
@@ -42,14 +42,12 @@
     <main>
         <!-- Hero Section (Home) -->
         <section id="home" class="hero-section full-viewport-section">
-            <!-- REMOVED: <div class="hero-background-container">...</div> -->
-            <!-- Background image is applied via CSS to .hero-section -->
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1 id="typewriter-title">Hema Rai</h1> <!-- Content will be filled by JS -->
-                <p id="typewriter-subtitle" class="typewriter-line"></p>
-                <p id="typewriter-subtitle2" class="typewriter-line"></p>
-                <a href="#about" class="cta-button" id="typewriter-button">LEARN MORE ABOUT ME</a>
+                <h1 id="hero-title">Hema Rai</h1>
+                <p id="hero-subtitle1">A housewife and receptionist at Fiber World Communication</p>
+                <p id="hero-subtitle2-typewriter" class="typewriter-target"></p> <!-- Target for typewriter -->
+                <a href="#about" class="cta-button" id="hero-cta-button">LEARN MORE ABOUT ME</a>
             </div>
         </section>
 
@@ -65,7 +63,7 @@
                         <p>Thanks for stopping by—let's connect!</p>
                     </div>
                     <div class="about-image-container">
-                        <img src="docs/hero.jpg" alt="Hema Rai" class="about-image"> <!-- Path relative to index.html at root -->
+                        <img src="docs/hero.jpg" alt="Hema Rai" class="about-image">
                     </div>
                 </div>
             </div>
@@ -78,7 +76,7 @@
                 <p class="section-subtitle">A collection of memories</p>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="docs/image1.jpg" alt="Gallery Image 1"> <!-- Path relative to index.html at root -->
+                        <img src="docs/image1.jpg" alt="Gallery Image 1">
                         <div class="gallery-item-caption">Memory One</div>
                     </div>
                     <div class="gallery-item">
@@ -107,7 +105,7 @@
                 <h2>Get in Touch</h2>
                 <p class="section-subtitle">I'd love to hear from you! Whether it's a question or a potential collaboration.</p>
                 <div class="contact-form-container">
-                    <form id="contact-form" action="#" method="POST">
+                    <form id="contact-form" action="#" method="POST"> <!-- Replace # with form handler -->
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" required>
@@ -151,8 +149,6 @@
     </footer>
 
     <script>
-        // Your JavaScript from the previous version - it should work fine.
-        // Make sure to place it here.
         document.addEventListener('DOMContentLoaded', () => {
             const burger = document.querySelector('.burger');
             const navLinksContainer = document.querySelector('nav .nav-links');
@@ -160,64 +156,37 @@
             const header = document.getElementById('main-header');
             let headerHeight = header.offsetHeight;
 
-            // Typewriter effect for hero section
-            const titleText = "Hema Rai";
-            const subtitleText = "A housewife and receptionist at Fiber World Communication";
-            const subtitle2Text = "Creating warmth at home and professionalism at work";
-            
-            const titleElement = document.getElementById('typewriter-title');
-            const subtitleElement = document.getElementById('typewriter-subtitle');
-            const subtitle2Element = document.getElementById('typewriter-subtitle2');
-            const buttonElement = document.getElementById('typewriter-button');
-            
-            if(titleElement) titleElement.textContent = ''; 
-            if(subtitleElement) subtitleElement.textContent = '';
-            if(subtitle2Element) subtitle2Element.textContent = '';
-            if (buttonElement) {
-                buttonElement.style.opacity = 0;
-                buttonElement.style.transform = 'translateY(10px)';
-            }
+            // Typewriter effect for hero section - Line 2
+            const typewriterTarget = document.getElementById('hero-subtitle2-typewriter');
+            const textToType = "Creating warmth at home and professionalism at work";
+            const ctaButtonHero = document.getElementById('hero-cta-button');
 
-            let i = 0;
-            function typeTitle() {
-                if (titleElement && i < titleText.length) {
-                    titleElement.textContent += titleText.charAt(i);
-                    i++;
-                    setTimeout(typeTitle, 100);
-                } else {
-                    typeSubtitle(); 
+            if (typewriterTarget) {
+                typewriterTarget.textContent = ''; // Clear for typing
+                if(ctaButtonHero) {
+                    ctaButtonHero.style.opacity = 0;
+                    ctaButtonHero.style.transform = 'translateY(10px)'; // Start button slightly down
                 }
-            }
-
-            let j = 0;
-            function typeSubtitle() {
-                if (subtitleElement && j < subtitleText.length) {
-                    subtitleElement.textContent += subtitleText.charAt(j);
-                    j++;
-                    setTimeout(typeSubtitle, 50); 
-                } else {
-                     typeSubtitle2(); 
-                }
-            }
-            
-            let k = 0;
-            function typeSubtitle2() {
-                 if (subtitle2Element && k < subtitle2Text.length) {
-                    subtitle2Element.textContent += subtitle2Text.charAt(k);
-                    k++;
-                    setTimeout(typeSubtitle2, 50);
-                } else {
-                    if (buttonElement) {
-                        buttonElement.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
-                        buttonElement.style.opacity = 1; 
-                        buttonElement.style.transform = 'translateY(0)';
+                
+                let i = 0;
+                function typeWriter() {
+                    if (i < textToType.length) {
+                        typewriterTarget.textContent += textToType.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 60); // Adjust typing speed (ms)
+                    } else {
+                        // After typing, fade in the button
+                        if(ctaButtonHero) {
+                            ctaButtonHero.style.transition = 'opacity 0.5s ease-out 0.2s, transform 0.5s ease-out 0.2s'; // Added delay for button fade-in
+                            ctaButtonHero.style.opacity = 1;
+                            ctaButtonHero.style.transform = 'translateY(0)';
+                        }
                     }
                 }
+                // Start typing after a delay, allowing other content to potentially render
+                setTimeout(typeWriter, 1000); 
             }
 
-            if(titleElement && subtitleElement && subtitle2Element){
-                 setTimeout(typeTitle, 700);
-            }
 
             window.addEventListener('resize', () => {
                 headerHeight = header.offsetHeight;
@@ -232,7 +201,7 @@
             function smoothScrollToTarget(targetId) {
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    headerHeight = document.getElementById('main-header').offsetHeight; // Re-check header height
+                    headerHeight = document.getElementById('main-header').offsetHeight;
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = elementPosition - headerHeight;
 
