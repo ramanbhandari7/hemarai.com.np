@@ -2,18 +2,19 @@
 :root {
     --primary-font: 'Poppins', sans-serif;
     --text-color: #333;
-    --bg-light: #6c757d; /* The grey color from your screenshot for the body */
-    --bg-alt: #ffffff;
+    --bg-light: #6c757d; /* Grey from previous screenshot */
+    --bg-alt: #ffffff; /* White for alternating sections */
     --header-height: 70px;
 
+    /* Nav Colors */
     --nav-home-bg: #FF6B6B; /* Coral */
     --nav-about-bg: #4ECDC4; /* Turquoise */
     --nav-gallery-bg: #FED766; /* Yellow */
     --nav-gallery-text: #333;
-    --nav-contact-bg: #5D3A9B; /* Purple */
+    --nav-contact-bg: #8A2BE2; /* BlueViolet (changed from previous purple for better contrast example) */
     --nav-text-color: #ffffff;
 
-    --accent-color: var(--nav-home-bg); /* Use Home color for primary CTA */
+    --accent-color: var(--nav-home-bg); /* Primary CTA buttons will use home color */
 }
 
 * {
@@ -27,18 +28,18 @@ html {
     font-size: 16px;
     width: 100%;
     height: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll globally */
+    overflow-x: hidden;
 }
 
 body {
     font-family: var(--primary-font);
     line-height: 1.7;
     color: var(--text-color);
-    background-color: var(--bg-light); /* This is the grey from your screenshot */
+    background-color: var(--bg-light); /* Body background */
     width: 100%;
     min-height: 100vh;
-    display: flex; /* Helps if content is unexpectedly short */
-    flex-direction: column; /* Stack header, main, footer */
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -53,20 +54,20 @@ a { text-decoration: none; color: var(--accent-color); transition: color 0.3s ea
 a:hover { opacity: 0.8; }
 
 h1, h2, h3 { margin-bottom: 0.75em; font-weight: 600; line-height: 1.3; }
-h1 { font-size: clamp(2rem, 5vw, 3rem); } /* Adjusted hero title size */
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
 h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); text-align: center; margin-bottom: 1.5em; }
 h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
 
 p { margin-bottom: 1em; }
 .section-subtitle { text-align: center; font-size: 1.1rem; color: #555; max-width: 700px; margin: -1em auto 2.5em auto; }
 
-/* === Header (Styles should be fine from before) === */
+/* === Header === */
 #main-header {
     background-color: #fff;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Crucial */
+    width: 100%;
     z-index: 1000;
     height: var(--header-height);
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
@@ -90,79 +91,77 @@ p { margin-bottom: 1em; }
 /* === Main Content Wrapper === */
 main {
     padding-top: var(--header-height);
-    width: 100%; /* Make sure main takes full width */
-    flex-grow: 1; /* Allows main to expand and push footer down */
-    display: block; /* Or flex if sections need specific flex behaviors */
+    width: 100%;
+    flex-grow: 1; /* Allows main to take available space */
 }
 
 .content-section { padding: clamp(40px, 8vw, 70px) 0; width: 100%; box-sizing: border-box; }
 .content-section.bg-alt { background-color: var(--bg-alt); }
 
-/* === Hero Section (#home) - CRITICAL STYLES === */
+/* === Hero Section (#home) === */
 .hero-section {
-    /* Background Image Setup */
-    background-image: url('main.jpg'); /* ENSURE 'main.jpg' is in docs/ and is your desired BG */
+    background-image: url('main.jpg'); /* Path relative to style.css (both in docs/) */
     background-repeat: no-repeat;
-    background-position: center center; /* Centers the image */
-    background-size: cover; /* Scales image to cover entire section, may crop */
-    /* Use 'contain' if you MUST see the whole image, but it may leave empty space: */
-    /* background-size: contain; */
+    background-position: center center;
+    background-size: cover;
     
-    /* Dimensions & Positioning */
-    width: 100%; /* Force hero section to be full width of 'main' */
-    min-height: calc(100vh - var(--header-height)); /* Full viewport height minus header */
-    position: relative; /* For positioning overlay and content */
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+    position: relative;
     
-    /* Content Alignment (Flexbox) */
     display: flex;
-    flex-direction: column; /* Stack h1, p, button vertically */
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    text-align: center; /* Fallback for text alignment */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     
-    color: #ffffff; /* Text color for hero content */
-    padding: 20px; /* Padding for the content inside, especially on small screens */
-    box-sizing: border-box; /* Ensures padding doesn't add to width/height */
+    color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.hero-overlay { /* Darkens the background image for text readability */
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness (0.3 to 0.6 is common) */
-    z-index: 1; /* Overlay is above background image */
+    background-color: rgba(0, 0, 0, 0.55); /* Slightly darker overlay */
+    z-index: 1;
 }
 
-.hero-content { /* Holds h1, p, button */
-    position: relative; /* To sit on top of the overlay */
-    z-index: 2; /* Content is above overlay */
-    max-width: 90%; /* Prevent text from hitting edges on very wide screens */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
 }
 .hero-content h1 {
-    color: #ffffff; /* Ensure hero title is white */
-    margin-bottom: 0.5em;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* More pronounced shadow for readability */
+    color: #ffffff;
+    margin-bottom: 0.4em; /* Adjusted margin */
+    font-weight: 700; /* Bolder hero title */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
 }
 .hero-content p {
-    font-size: clamp(1.05rem, 2.5vw, 1.25rem); /* Responsive paragraph */
-    margin-bottom: 1.8em;
-    max-width: 600px; /* Constrain line length for readability */
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Slightly smaller for better fit */
+    margin-bottom: 0.8em; /* Reduced margin between paragraphs */
+    max-width: 550px; /* Slightly reduced max-width */
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
 }
+.hero-content p:last-of-type {
+    margin-bottom: 1.8em; /* More margin before CTA */
+}
 
-/* CTA Button (from previous, uses --accent-color now) */
+/* CTA Button */
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color); /* Uses --nav-home-bg via --accent-color */
-    color: var(--nav-text-color) !important; /* Ensure text is white */
+    background-color: var(--accent-color);
+    color: var(--nav-text-color) !important;
     padding: 12px 28px;
     border-radius: 25px;
     font-weight: 600;
-    font-size: 1rem; /* Slightly adjusted */
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -171,38 +170,60 @@ main {
 }
 .cta-button:hover { opacity: 0.9; transform: translateY(-3px) scale(1.02); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
 
-/* === About, Gallery, Contact, Footer (Keep your existing styles if they were okay) === */
-/* Ensure these sections also have 'width: 100%; box-sizing: border-box;' if they seem constrained */
+/* === About Section === */
 .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 50px); align-items: center; }
 .about-text h3 { color: var(--nav-about-bg); margin-bottom: 0.8em; }
 .about-image-container { display: flex; justify-content: center; align-items: center; }
 .about-image { border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.12); width: 100%; max-width: 400px; height: auto; }
 
+/* === Gallery Section === */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 .gallery-item { background-color: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
 .gallery-item:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
 .gallery-item img { width: 100%; height: 220px; object-fit: cover; }
 .gallery-item-caption { padding: 15px; font-weight: 600; text-align: center; }
 
+/* === Contact Section === */
 .contact-form-container { max-width: 700px; margin: 0 auto 30px auto; background-color: var(--bg-alt); padding: 30px 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.07); }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #555; }
 .form-group input[type="text"], .form-group input[type="email"], .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-family: var(--primary-font); font-size: 1rem; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-.form-group input[type="text"]:focus, .form-group input[type="email"]:focus, .form-group textarea:focus { outline: none; border-color: var(--nav-contact-bg); box-shadow: 0 0 0 3px rgba(93, 58, 155, 0.2); }
+.form-group input[type="text"]:focus, .form-group input[type="email"]:focus, .form-group textarea:focus { outline: none; border-color: var(--nav-contact-bg); box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2); /* Using RGB for purple */ }
 .form-group textarea { resize: vertical; min-height: 120px; }
-.form-submit-button { width: 100%; background-color: var(--nav-contact-bg); }
+.form-submit-button { width: 100%; background-color: var(--nav-contact-bg); } /* Contact button uses contact nav color */
 .form-submit-button:hover { opacity: 0.9; }
 .contact-details { text-align: center; margin-top: 30px; }
 .contact-details p { font-size: 1.1rem; }
 .contact-details strong { color: var(--text-color); }
 
-#main-footer { background-color: #222; color: #ccc; padding: 40px 0; text-align: center; margin-top: auto; /* Pushes footer to bottom if content is short */ }
-.footer-content p { margin-bottom: 0.5em; font-size: 0.9rem; }
-.footer-social-links { margin-bottom: 15px; }
-.footer-social-links a { color: #ccc; font-size: 1.5rem; margin: 0 10px; transition: color 0.3s ease, transform 0.3s ease; }
-.footer-social-links a:hover { color: var(--nav-gallery-bg); transform: scale(1.1); }
+/* === Footer === */
+#main-footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 30px 0; /* Reduced padding slightly */
+    text-align: center;
+    margin-top: auto; /* Pushes footer to bottom */
+}
+.footer-content p {
+    margin-bottom: 0.5em;
+    font-size: 0.9rem;
+}
+.footer-social-links {
+    margin-bottom: 20px; /* Increased margin */
+}
+.footer-social-links a {
+    color: #ccc;
+    font-size: 1.8rem; /* Slightly larger icons */
+    margin: 0 12px; /* Adjusted spacing */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* For transform to work smoothly */
+}
+.footer-social-links a:hover {
+    color: var(--nav-gallery-bg); /* Yellow hover */
+    transform: translateY(-3px) scale(1.1);
+}
 
-/* === Responsive Design (Mobile Nav and stacking for About section) === */
+/* === Responsive Design === */
 @media (max-width: 992px) {
     .about-layout { grid-template-columns: 1fr; }
     .about-image-container { order: -1; margin-bottom: 30px; }
@@ -222,10 +243,11 @@ main {
     .burger.toggle .burger-line:nth-child(2) { opacity: 0; }
     .burger.toggle .burger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    .hero-content h1 { font-size: clamp(1.6rem, 7vw, 2rem); }
-    .hero-content p { font-size: clamp(0.95rem, 4vw, 1.1rem); }
+    .hero-content h1 { font-size: clamp(1.8rem, 6vw, 2.2rem); } /* Adjusted hero text for mobile */
+    .hero-content p { font-size: clamp(0.9rem, 3.5vw, 1.05rem); }
 
     .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
     .gallery-item img { height: 180px; }
     .contact-form-container { padding: 20px; }
+    .footer-social-links a { font-size: 1.6rem; margin: 0 10px; }
 }
